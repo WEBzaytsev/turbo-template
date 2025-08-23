@@ -10,14 +10,52 @@ export const nestConfig = [
   ...baseConfig,
   // Включаем typed-linting (TypeScript type-aware) через projectService
   {
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parserOptions: {
         projectService: true,
+        tsconfigRootDir: process.cwd(),
       },
     },
     rules: {
-      // Предпочитаем optional chaining вместо && для проверок на null/undefined
+      // Typed-linting правила для NestJS
       '@typescript-eslint/prefer-optional-chain': 'error',
+      '@typescript-eslint/prefer-nullish-coalescing': [
+        'error',
+        {
+          ignoreConditionalTests: false,
+          ignoreMixedLogicalExpressions: false,
+          ignoreTernaryTests: false,
+        },
+      ],
+      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/await-thenable': 'error',
+      '@typescript-eslint/no-for-in-array': 'error',
+      '@typescript-eslint/no-misused-promises': [
+        'error',
+        {
+          checksConditionals: true,
+          checksVoidReturn: false, // Для NestJS middleware/guards
+        },
+      ],
+      '@typescript-eslint/require-await': 'error',
+      '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+      '@typescript-eslint/strict-boolean-expressions': [
+        'error',
+        {
+          allowString: false,
+          allowNumber: false,
+          allowNullableObject: false,
+          allowNullableBoolean: false,
+          allowNullableString: false,
+          allowNullableNumber: false,
+          allowAny: false,
+        },
+      ],
+
       // Предпочитаем шаблонные строки вместо конкатенации
       'prefer-template': 'error',
       // Запрещаем конкатенацию только строковых литералов
@@ -26,11 +64,8 @@ export const nestConfig = [
       'no-constant-condition': ['error', { checkLoops: false }],
       // Запрещаем присваивания внутри условий
       'no-cond-assign': ['error', 'always'],
-      // Отключаем "лишние условия" ради снижения шума; базовые проверки константных условий остаются
-      '@typescript-eslint/no-unnecessary-condition': 'off',
       // Запрещаем константные бинарные выражения
       'no-constant-binary-expression': 'error',
-      // Строгие булевы выражения убраны, чтобы снизить шум; контроль константных условий остаётся
     },
   },
   {
@@ -65,7 +100,10 @@ export const nestConfig = [
     plugins: { unicorn },
     rules: {
       "unicorn/prevent-abbreviations": "off",
-      // Optional chaining правило убрано, так как требует typed-linting в текущей конфигурации
+      // Дополнительные Unicorn правила для NestJS
+      "unicorn/prefer-node-protocol": "error",
+      "unicorn/prefer-includes": "error",
+      "unicorn/prefer-ternary": "error",
     },
   },
 ];
