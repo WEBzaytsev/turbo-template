@@ -7,7 +7,8 @@ import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 import queryPlugin from "@tanstack/eslint-plugin-query";
 import unicorn from "eslint-plugin-unicorn";
-import { config as baseConfig } from "./base.js";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import { base } from "./base.js";
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
@@ -15,7 +16,7 @@ import { config as baseConfig } from "./base.js";
  * @type {import("eslint").Linter.Config[]}
  * */
 export const nextJsConfig = [
-  ...baseConfig,
+  ...base,
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
@@ -95,9 +96,11 @@ export const nextJsConfig = [
     },
   },
   {
+    files: ["**/*.tsx", "**/*.jsx"],
     plugins: {
       react: pluginReact,
       unicorn,
+      "jsx-a11y": jsxA11y,
     },
     rules: {
       // Компоненты/HTML без children должны быть самозакрывающимися (<Comp />)
@@ -106,6 +109,11 @@ export const nextJsConfig = [
       "unicorn/prefer-node-protocol": "error",
       "unicorn/prefer-includes": "error",
       "unicorn/prefer-ternary": "error",
+      // Accessibility правила
+      "jsx-a11y/alt-text": "warn",
+      "jsx-a11y/anchor-is-valid": "warn",
+      "jsx-a11y/click-events-have-key-events": "warn",
+      "jsx-a11y/no-static-element-interactions": "warn",
     },
   },
   {

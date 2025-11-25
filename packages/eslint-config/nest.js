@@ -1,5 +1,5 @@
 import globals from "globals";
-import { config as baseConfig } from "./base.js";
+import { base } from "./base.js";
 import unicorn from "eslint-plugin-unicorn";
 
 /**
@@ -7,7 +7,7 @@ import unicorn from "eslint-plugin-unicorn";
  * @type {import("eslint").Linter.Config[]}
  */
 export const nestConfig = [
-  ...baseConfig,
+  ...base,
   // Включаем typed-linting (TypeScript type-aware) через projectService
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -19,32 +19,32 @@ export const nestConfig = [
     },
     rules: {
       // Typed-linting правила для NestJS
-      '@typescript-eslint/prefer-optional-chain': 'error',
-      '@typescript-eslint/prefer-nullish-coalescing': [
-        'error',
+      "@typescript-eslint/prefer-optional-chain": "error",
+      "@typescript-eslint/prefer-nullish-coalescing": [
+        "error",
         {
           ignoreConditionalTests: false,
           ignoreMixedLogicalExpressions: false,
           ignoreTernaryTests: false,
         },
       ],
-      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
-      '@typescript-eslint/consistent-type-exports': 'error',
-      '@typescript-eslint/no-floating-promises': 'error',
-      '@typescript-eslint/await-thenable': 'error',
-      '@typescript-eslint/no-for-in-array': 'error',
-      '@typescript-eslint/no-misused-promises': [
-        'error',
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+      "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/no-for-in-array": "error",
+      "@typescript-eslint/no-misused-promises": [
+        "error",
         {
           checksConditionals: true,
           checksVoidReturn: false, // Для NestJS middleware/guards
         },
       ],
-      '@typescript-eslint/require-await': 'error',
-      '@typescript-eslint/return-await': ['error', 'in-try-catch'],
-      '@typescript-eslint/strict-boolean-expressions': [
-        'error',
+      "@typescript-eslint/require-await": "error",
+      "@typescript-eslint/return-await": ["error", "in-try-catch"],
+      "@typescript-eslint/strict-boolean-expressions": [
+        "error",
         {
           allowString: false,
           allowNumber: false,
@@ -57,15 +57,15 @@ export const nestConfig = [
       ],
 
       // Предпочитаем шаблонные строки вместо конкатенации
-      'prefer-template': 'error',
+      "prefer-template": "error",
       // Запрещаем конкатенацию только строковых литералов
-      'no-useless-concat': 'error',
+      "no-useless-concat": "error",
       // Запрещаем константные условия в if/for/do...while и тернарных операторах, но разрешаем бесконечные циклы while(true)
-      'no-constant-condition': ['error', { checkLoops: false }],
+      "no-constant-condition": ["error", { checkLoops: false }],
       // Запрещаем присваивания внутри условий
-      'no-cond-assign': ['error', 'always'],
+      "no-cond-assign": ["error", "always"],
       // Запрещаем константные бинарные выражения
-      'no-constant-binary-expression': 'error',
+      "no-constant-binary-expression": "error",
     },
   },
   {
@@ -107,5 +107,3 @@ export const nestConfig = [
     },
   },
 ];
-
-

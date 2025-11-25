@@ -1,0 +1,88 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    "apps/api": {
+      "entry": [
+        "src/main.ts!",
+        "test/**/*.e2e-spec.ts!"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ],
+      "ignore": [
+        "dist/**",
+        "coverage/**",
+        "**/*.spec.ts"
+      ]
+    },
+    "apps/web": {
+      "entry": [
+        "app/**/*.tsx!"
+      ],
+      "project": [
+        "app/**/*.{ts,tsx}",
+        "components/**/*.{ts,tsx}"
+      ],
+      "ignore": [
+        ".next/**",
+        "out/**",
+        "public/**",
+        "**/*.test.{ts,tsx}",
+        "**/*.spec.{ts,tsx}"
+      ],
+      "next": {
+        "entry": ["app/layout.tsx!", "app/page.tsx!", "app/**/page.tsx!", "app/**/layout.tsx!"]
+      }
+    },
+    "packages/eslint-config": {
+      "entry": ["*.js!", "*.cjs!"],
+      "project": ["**/*.{js,cjs}"]
+    },
+    "packages/typescript-config": {
+      "entry": ["*.json!"],
+      "project": ["**/*.json"]
+    }
+  },
+  "ignore": [
+    "**/dist/**",
+    "**/.next/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/*.d.ts",
+    "**/public/**",
+    "**/node_modules/**",
+    "**/*.spec.{js,ts,tsx}",
+    "**/*.test.{js,ts,tsx}",
+    "**/migrate-mongo-config.js",
+    "**/migrations/**",
+    "**/mongo-migrations/**",
+    "**/seeds/**",
+    "**/*.bak",
+    "**/turbo/generators/**",
+    "**/uploads/**",
+    "**/logs/**",
+    "**/docs/**"
+  ],
+  "ignoreBinaries": [],
+  "ignoreDependencies": [
+    "next"
+  ],
+  "includeEntryExports": true,
+  "ignoreExportsUsedInFile": false,
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "devDependencies": "error",
+    "unlisted": "error",
+    "exports": "error",
+    "types": "warn",
+    "nsTypes": "error",
+    "enumMembers": "error",
+    "classMembers": "error",
+    "duplicates": "error",
+    "nsExports": "error",
+    "unresolved": "error"
+  }
+}
+

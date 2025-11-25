@@ -11,7 +11,7 @@ import unicorn from "eslint-plugin-unicorn";
  * A shared ESLint configuration for the repository.
  * @type {import("eslint").Linter.Config[]}
  */
-export const config = [
+export const base = [
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
@@ -49,8 +49,11 @@ export const config = [
       "import/resolver": {
         typescript: {
           alwaysTryTypes: true,
+          project: ["./tsconfig.json"],
         },
-        node: true,
+        node: {
+          extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
       },
     },
     rules: {
