@@ -4,6 +4,6 @@ import { nextJsConfig } from "@repo/eslint-config/next.js";
 export default [
   ...nextJsConfig,
   {
-    ignores: ["next-env.d.ts"],
+    ignores: ["next-env.d.ts", ".prettierrc.cjs"],
   },
 ];

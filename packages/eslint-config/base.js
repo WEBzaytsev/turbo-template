@@ -1,11 +1,11 @@
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
-import turboPlugin from "eslint-plugin-turbo";
-import tseslint from "typescript-eslint";
 import onlyWarn from "eslint-plugin-only-warn";
 import sonarjs from "eslint-plugin-sonarjs";
+import turboPlugin from "eslint-plugin-turbo";
 import unicorn from "eslint-plugin-unicorn";
+import tseslint from "typescript-eslint";
 
 /**
  * A shared ESLint configuration for the repository.
@@ -120,16 +120,9 @@ export const base = [
       // Modern JS/TS simplifications (auto-fix)
       "prefer-const": "error",
       "no-var": "error",
-      "prefer-arrow-callback": [
-        "error",
-        { allowNamedFunctions: false, allowUnboundThis: true },
-      ],
+      "prefer-arrow-callback": ["error", { allowNamedFunctions: false, allowUnboundThis: true }],
       "arrow-body-style": ["error", "as-needed"],
-      "logical-assignment-operators": [
-        "error",
-        "always",
-        { enforceForIfStatements: true },
-      ],
+      "logical-assignment-operators": ["error", "always", { enforceForIfStatements: true }],
       "no-useless-rename": "error",
       "no-useless-return": "error",
       "no-return-await": "error",
@@ -144,8 +137,7 @@ export const base = [
         {
           selector:
             "TemplateLiteral[expressions.length=0][quasis.length=1]:not(:has(TemplateElement[value.raw=/[\\\n\\\r]/]))",
-          message:
-            "Template string can be replaced with a regular string literal",
+          message: "Template string can be replaced with a regular string literal",
         },
       ],
 
@@ -182,12 +174,7 @@ export const base = [
         { selector: "enumMember", format: ["PascalCase", "UPPER_CASE"] },
         // Do not enforce naming on properties (too noisy, domain-driven keys allowed)
         {
-          selector: [
-            "property",
-            "classProperty",
-            "objectLiteralProperty",
-            "typeProperty",
-          ],
+          selector: ["property", "classProperty", "objectLiteralProperty", "typeProperty"],
           format: null,
         },
         // Ignore quoted properties (e.g., HTTP headers)

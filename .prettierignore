@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+dist
+**/dist
+.next
+**/.next
+out
+**/out
+build
+**/build
+coverage
+**/coverage
+
+# Turbo
+.turbo
+**/.turbo
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+# Generated
+*.min.js
+*.min.css
+*.d.ts
+
+# IDE
+.idea
+.vscode
+
+# Cache
+.cache
+**/.cache
+
+# Logs
+*.log
+
+# Other
+.env*
+!.env.example
+.vercel

@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./base.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
@@ -23,5 +22,6 @@
     "resolveJsonModule": true,
     "allowJs": false,
     "checkJs": false
-  }
+  },
+  "extends": "./base.json"
 }

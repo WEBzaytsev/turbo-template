@@ -1,6 +1,6 @@
+import unicorn from "eslint-plugin-unicorn";
 import globals from "globals";
 import { base } from "./base.js";
-import unicorn from "eslint-plugin-unicorn";
 
 /**
  * Flat ESLint config для NestJS (Node.js + Jest)

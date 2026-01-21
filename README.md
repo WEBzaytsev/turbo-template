@@ -36,6 +36,7 @@ This will create a new directory with your project name and bootstrap it with th
 ### After Creating Your Project
 
 1. **Install dependencies:**
+
    ```sh
    npm install
    ```

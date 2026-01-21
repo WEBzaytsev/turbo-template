@@ -1,13 +1,13 @@
 import js from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
-import tseslint from "typescript-eslint";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginReact from "eslint-plugin-react";
-import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 import queryPlugin from "@tanstack/eslint-plugin-query";
-import unicorn from "eslint-plugin-unicorn";
+import eslintConfigPrettier from "eslint-config-prettier";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
+import unicorn from "eslint-plugin-unicorn";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 import { base } from "./base.js";
 
 /**
