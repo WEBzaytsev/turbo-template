@@ -12,6 +12,11 @@ import typia from "typia";
 import type { IHelloResponse } from "../structures/IHelloResponse";
 
 /**
+ * Получить приветствие
+ *
+ * @tag App
+ * @returns Приветственное сообщение
+ *
  * @controller AppController.getHello
  * @path GET /
  * @accessor api.functional.getHello

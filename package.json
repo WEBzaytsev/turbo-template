@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prepare": "turbo run prepare",
     "build": "turbo run build",
     "check-types": "turbo run check-types",
     "clean": "turbo run clean && rm -rf node_modules .turbo",

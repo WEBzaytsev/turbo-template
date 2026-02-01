@@ -10,6 +10,12 @@ export interface IHelloResponse {
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  /**
+   * Получить приветствие
+   *
+   * @tag App
+   * @returns Приветственное сообщение
+   */
   @TypedRoute.Get()
   getHello(): IHelloResponse {
     return {
