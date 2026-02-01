@@ -18,9 +18,7 @@
     "lint:fix": "turbo run lint:fix",
     "sdk": "turbo run sdk",
     "syncpack:check": "syncpack lint",
-    "syncpack:fix": "syncpack fix-mismatches && syncpack format",
-    "test": "turbo run test",
-    "test:cov": "turbo run test:cov"
+    "syncpack:fix": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
     "knip": "5.82.1",
