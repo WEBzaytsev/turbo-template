@@ -7,6 +7,12 @@
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": ["NODE_ENV", "PORT"]
     },
+    "sdk": {
+      "dependsOn": [],
+      "inputs": ["$TURBO_DEFAULT$", "src/**/*.controller.ts", "nestia.config.ts"],
+      "outputs": ["../../packages/api-sdk/src/**"],
+      "cache": false
+    },
     "lint": {
       "dependsOn": ["^lint"],
       "inputs": ["$TURBO_DEFAULT$", "eslint.config.*"],

@@ -1,13 +1,35 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "rootDir": "./",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "plugins": [
+      {
+        "transform": "typia/lib/transform"
+      },
+      {
+        "transform": "@nestia/core/lib/transform"
+      },
+      {
+        "transform": "@nestia/sdk/lib/transform"
+      }
+    ],
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "extends": "@repo/typescript-config/nestjs.json",
-  "include": ["src/**/*", "test/**/*"]
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ]
 }

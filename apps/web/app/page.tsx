@@ -1,5 +1,7 @@
 import Image, { type ImageProps } from "next/image";
 import { Button } from "../components/button";
+import { HelloClient } from "../components/hello-client";
+import { api } from "../lib/api";
 import styles from "./page.module.css";
 
 type Props = Omit<ImageProps, "src"> & {
@@ -18,7 +20,10 @@ const ThemeImage = (props: Props) => {
   );
 };
 
-export default function Home() {
+export default async function Home() {
+  // Server Component: прямой вызов SDK
+  const response = await api.getHello();
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -36,6 +41,12 @@ export default function Home() {
             Get started by editing <code>apps/web/app/page.tsx</code>
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>
+            <strong>Server API Response:</strong> {response.message}
+          </li>
+          <li>
+            <HelloClient />
+          </li>
         </ol>
 
         <div className={styles.ctas}>

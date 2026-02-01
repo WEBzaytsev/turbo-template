@@ -1,12 +1,19 @@
-import { Controller, Get } from "@nestjs/common";
+import { TypedRoute } from "@nestia/core";
+import { Controller } from "@nestjs/common";
 import { AppService } from "./app.service";
+
+export interface IHelloResponse {
+  message: string;
+}
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @TypedRoute.Get()
+  getHello(): IHelloResponse {
+    return {
+      message: this.appService.getHello(),
+    };
   }
 }
