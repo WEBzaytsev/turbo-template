@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core";
-import { existsSync, readFileSync } from "fs";
-import { join } from "path";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import swaggerUi from "swagger-ui-express";
 import { AppModule } from "./app.module";
 
@@ -8,7 +8,8 @@ async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT ?? 3001;
 
-  const corsOrigins = process.env.CORS_ORIGINS?.split(",").map((o) => o.trim()) || [
+  const corsOriginsRaw = process.env.CORS_ORIGINS;
+  const corsOrigins = corsOriginsRaw?.split(",").map(origin => origin.trim()) ?? [
     "http://localhost:3000",
   ];
 
@@ -18,8 +19,10 @@ async function bootstrap(): Promise<void> {
 
   // Swagger UI (из сгенерированного Nestia swagger.json)
   const swaggerPath = join(__dirname, "..", "..", "swagger.json");
+
   if (existsSync(swaggerPath)) {
     const swaggerDocument = JSON.parse(readFileSync(swaggerPath, "utf-8"));
+
     app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   } else {
     console.log("⚠ swagger.json не найден. Выполните: pnpm sdk");

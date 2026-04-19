@@ -4,6 +4,8 @@ import { HelloClient } from "../components/hello-client";
 import { api } from "../lib/api";
 import styles from "./page.module.css";
 
+export const dynamic = "force-dynamic";
+
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
   srcDark: string;
@@ -34,7 +36,6 @@ export default async function Home() {
           alt="Turborepo logo"
           width={180}
           height={38}
-          priority
         />
         <ol>
           <li>

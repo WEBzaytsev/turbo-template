@@ -5,7 +5,7 @@
  */
 //================================================================
 import type { IConnection } from "@nestia/fetcher";
-import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
+import { PlainFetcher } from "@nestia/fetcher";
 import type { Resolved } from "typia";
 import typia from "typia";
 

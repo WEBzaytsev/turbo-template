@@ -25,7 +25,6 @@ pnpm sdk          # Генерирует SDK из контроллеров API
 # Проверка
 pnpm check-types  # Проверка типов
 pnpm lint         # Линтинг
-pnpm test         # Тесты
 
 # Сборка
 pnpm build        # Сборка всех приложений
@@ -41,6 +40,6 @@ pnpm build        # Сборка всех приложений
 
 - **Package Manager**: pnpm
 - **API**: NestJS + Nestia + typia
-- **Frontend**: Next.js 15 + React 19
+- **Frontend**: Next.js 16 + React 19
 - **Monorepo**: Turborepo
 - **SDK Generation**: Nestia

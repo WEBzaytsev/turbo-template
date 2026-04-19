@@ -1,7 +1,7 @@
 import { getHello, type IConnection } from "@repo/api-sdk";
 
 export const connection: IConnection = {
-  host: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001",
+  host: process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001",
 };
 
 // Типобезопасные query keys из SDK метаданных
